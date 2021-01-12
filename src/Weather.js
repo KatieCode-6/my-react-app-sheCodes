@@ -3,24 +3,25 @@ import "./Weather.css";
 
 export default function Weather() {
   let weatherData = {
-    city: "Palma de Mallorca",
-    date: "Saturday 15:00 hod",
-    description: "Sunny",
+    city: "London",
+    date: "Monday 18:00",
+    description: "Cloudy",
+    temperature: 15,
     imgUrl:
       "https://cdn3.iconfinder.com/data/icons/photography-54/64/sunny-mode-camera-photography-512.png",
-    temperature: 24,
-    humidity: 70,
+    humidity: 80,
     wind: 40
   };
   return (
-    <div className="Weather">
-      <form className="mb-3">
+    <div className="weather">
+      <form id="search-form" className="mb-3">
         <div className="row">
           <div className="col-sm-9">
             <input
               type="search"
               placeholder="Type a city..."
               className="form-control"
+              id="city-input"
               autoComplete="off"
             />
           </div>
@@ -38,7 +39,7 @@ export default function Weather() {
           <strong>{weatherData.city}</strong>
         </h1>
         <ul>
-          <li>{weatherData.date}</li>
+          <li>Last updated: {weatherData.date}</li>
           <li>{weatherData.description}</li>
         </ul>
       </div>
@@ -55,21 +56,23 @@ export default function Weather() {
             <div className="float-left">
               <strong>{weatherData.temperature}</strong>
               <span className="units">
-                <a href="/" className="active">
-                  ℃{" "}
-                </a>{" "}
-                |<a href="/">ºF</a>
+                <a href="/">℃ </a>|<a href="/">ºF </a>
               </span>
             </div>
           </div>
         </div>
         <div className="col-sm-6">
           <ul>
-            <li>Humidity: {weatherData.humidity}%</li>
-            <li>Wind: {weatherData.wind}km/h</li>
+            <li>Humidity: {weatherData.humidity} %</li>
+            <li>Wind: {weatherData.wind} km/h</li>
           </ul>
         </div>
       </div>
+      <div className="row weather-forecast" id="forecast"></div>
     </div>
   );
 }
+
+<small>
+        <a href="https://github.com/KatieCode-6/vanilla-project" >Open-source code</a> by Katie Kovacova
+    </small>
